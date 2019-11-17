@@ -13,5 +13,6 @@ dependencies:
   - pillow==5.4.1
   - ipykernel==5.1.0
   - jupyter
+  - jupyterlab
   - pip:
     - piexif==1.1.2
