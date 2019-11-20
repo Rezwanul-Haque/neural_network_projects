@@ -1,3 +1,14 @@
+# Project Title: Using AI to predict which patients are at risk of "Diabetes Mellitus"
+
+| Item       | *Description*     |
+| ------------- |:--------------|
+| Name     | risk of "Diabetes Mellitus" | 
+| Solution Approach      | MLP (Multi layer Perceptron) |
+| Dataset | Pima Indians Diabetes dataset |
+| Provider | National Institute of Diabetes and Digestive and Kidney Diseases |
+| Dataset link | [kaggle dataset link](https://www.kaggle.com/uciml/pima-indians-diabetes-database/data) |
+
+
 # What is Diabetes?
 ### Diabetes is a chronic medical condition that is associated with elevated blood sugar levels in the body. Diabetes often leads to cardiovascular disease, stroke, kidney damage, and long-term damage to the extremities (that is, limbs and eyes).
 
@@ -19,3 +30,16 @@
 
 # Machine learning to address Diabetes problem?
 ### If we have a labeled dataset that contains some vital measurements of patients (for example, age and blood insulin level), as well as a true label indicating the onset of diabetes in the patient sometime after the measurements were taken, then we can train a neural network (machine learning classifier) on this data and use it to make predictions on new patients.
+
+# According to experts, AI in healthcare will see the most growth in the following areas
+    1. Automated Diagnosis
+    2. Robot-Assisted Surgeries
+    3. Precision Medicine
+    4. Virtual Health Assistants
+    
+# Automated Diagnosis
+## For predicting Diabetes, this project fall under the these category of Automated Diagnosis.
+#### Currently, most medical diagnosis is performed by skilled medical experts. In the case of medical diagnosis through images (such as X-rays and MRI scans), skilled radiologists are required to provide their expertise in the diagnostic process. These skilled medical professionals go through years of rigorous training before being certified, and there is a shortage of these medical experts in certain countries, which contributes to poor outcomes. The role of AI is to augment these experts and to offload lowlevel routine diagnosis, which can be done by an AI agent with a high degree of accuracy.
+
+# Dataset Description
+### The Pima Indians diabetes dataset consists of diagnostic measurements collected from a sample of female Pima Indians, along with a label indicating whether the patient developed diabetes within five years of the initial measurement.
