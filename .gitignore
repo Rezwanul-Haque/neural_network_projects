@@ -138,4 +138,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Large files
+taxi_fares_problem/taxi_fares_prediction/data/new-york-city-taxi-fare-prediction.zip
+.git/objects/pack/tmp_pack_ngeJOk
+.git/objects/pack/tmp_pack_kcsSrn
+*.zip
+taxi_fares_problem/taxi_fares_prediction/data/NYC_taxi.csv
+
 # End of https://www.gitignore.io/api/python,jupyternotebooks
