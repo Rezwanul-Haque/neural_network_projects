@@ -14,3 +14,13 @@ an algorithm to provide fare pricing upfront is no simple feat. The algorithm
 needs to consider various environmental variables such as traffic conditions,
 time of day, and pick up and drop off locations in order to make an accurate
 fare prediction
+
+# What latitude and longitude represents
+Latitude and longitude are coordinates in a geographic coordinate system. Basically,
+the latitude and longitude allows us to specify any location on Earth using a set of coordinates.
+
+![latitude and longitude](images/latitude_and_longitude.png)
+
+We can think of the Earth as a scatterplot, with the Longitude and the
+Latitude being the axes. Then, every location on Earth is simply a point on
+the scatterplot.
