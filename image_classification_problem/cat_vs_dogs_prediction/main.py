@@ -19,7 +19,7 @@ from sklearn.metrics import confusion_matrix, roc_curve, mean_squared_error
 from keras.models import Sequential
 from keras.layers import Dense
 
-from utils import test_test_split
+from utils import train_test_split
 
 # _, _, cat_images = next(os.walk('data/PetImages/Cat'))
 
