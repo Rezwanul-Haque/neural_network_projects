@@ -48,5 +48,6 @@ from utils import train_test_split
 #     ax[int(idx / 3), idx % 3].set_title('Dog/' + img)
 # plt.show()
 
-src_folder = 'data/PetImages/'
+BASE_DIR = os.getcwd() # Getting current working directories
+src_folder = f'{BASE_DIR}/data/PetImages/'
 train_test_split(src_folder)

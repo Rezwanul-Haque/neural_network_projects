@@ -59,3 +59,19 @@ softmax activation function is used for multiclass classification problems.
 3. VGG16
 4. Inception
 5. ResNet(Residual neural network)
+
+### Image augmentation
+Image augmentation is the creation of additional training data by making minor
+alterations to images in certain ways in order to create new images
+1. Image rotation
+2. Image translation
+3. Horizontal flip
+4. Zooming into the image
+
+### Image augmentation motivation
+CNNs require a huge amount of training data before they can generalize well.
+Keras provides a handy 'ImageDataGenerator' class to help us easily perform image augmentation.
+
+### What is Transfer learning?
+Transfer learning is a technique in machine learning where a model trained
+for a certain task is modified to make predictions for another task.
