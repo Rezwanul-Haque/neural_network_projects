@@ -144,6 +144,9 @@ taxi_fares_problem/taxi_fares_prediction/data/new-york-city-taxi-fare-prediction
 .git/objects/pack/tmp_pack_kcsSrn
 *.zip
 taxi_fares_problem/taxi_fares_prediction/data/NYC_taxi.csv
+noise_removing_problem/image_noise_removing/data/NoisyOffice/
+noise_removing_problem/image_noise_removing/data/clean/
+noise_removing_problem/image_noise_removing/data/noisy/
 
 image_classification_problem/cat_vs_dogs_prediction/data/*
 
