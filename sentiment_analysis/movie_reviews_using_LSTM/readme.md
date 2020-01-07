@@ -49,7 +49,7 @@ The critical piece of information in the sequence is the word HOT, at time step 
 the RNN is able to easily predict that it is not snowing today. Notice that the critical piece of information came just shortly before 
 the final output. In other words, we would say that there is a short-term dependency in this sequence.
 
-> # Long Term memory with a long sentence example
+> ### Long Term memory with a long sentence example
 
 ![LTM](images/LT_1.png)
 > Our goal is to predict whether the customer liked the movie.
@@ -57,3 +57,69 @@ the final output. In other words, we would say that there is a short-term depend
 Clearly, the customer liked the movie but not the cinema, which was the main complaint in the paragraph.
 
 ![LTM](images/LT_2.png)
+
+The critical words liked the movie appeared between time steps 3 and 5.
+Notice that there is a significant gap between the critical time steps and the
+output time step, as the rest of the text was largely irrelevant to the prediction
+problem (whether the customer liked the movie). In other words, we say that
+there is a long-term dependency in this sequence. Unfortunately, RNNs do not
+work well with long-term dependency sequences. RNNs have a good shortterm memory, but a bad long-term memory.
+> why this is so, we need to understand the vanishing gradient problem when training neural networks.
+
+### What is Vanishing Gradient Problem?
+The vanishing gradient problem is a problem when training deep neural networks using gradient-based methods such as backpropagation. the backpropagation algorithm in training neural networks. In particular, the loss function provides information on the accuracy of our predictions, and allows us to adjust the weights in each layer, to reduce the loss.
+
+>So far, we have assumed that backpropagation works perfectly. Unfortunately, that is not true. When the loss is propagated backward, the loss tends to decrease with each successive layer
+
+![backpropagation](images/backpropagation.png)
+
+As a result, by the time the loss is propagated back toward the first few layers, the loss has already diminished so much that the weights do not change much at all. With such a small loss being propagated backward, it is impossible to adjust and train the weights of the first few layers. This phenomenon is
+known as the <b>vanishing gradient problem</b> in machine learning.
+
+> The vanishing gradient problem does not affect CNNs in computer vision problems.
+
+> Sequential data and RNNs, the vanishing gradient can have a significant impact.
+
+
+> #### The vanishing gradient problem means that RNNs are unable to learn from early layers (early time steps), which causes it to have poor long-term memory.
+
+> # To solve this the LSTM Network born.
+
+LSTMs are a variation of RNNs, and they solve the long-term dependency problem faced by conventional RNNs.
+
+# LSTMs Intuition
+Conventional RNNs. Conventional RNNs have a tendency to remember everything (even unnecessary inputs) that results in the inability to learn from long sequences. By contrast, LSTMs selectively remember important inputs, and this allows them to handle both short- and long-term dependencies.
+
+# How LSTM network looks?
+![lstm](images/lstm-network.png)
+
+An LSTM differs from a conventional RNN in that it has a cell state, in addition to the hidden state. You can think of the cell state as the current memory of the LSTM. It flows from one repeating structure to the next, conveying important information that has to be retained at the moment. In contrast, the hidden state is the overall memory of the entire LSTM. It contains everything that we have seen so far, both important and unimportant information.
+
+# How does the LSTM release information between the hidden state and the cell state? 
+Using Three important gates:
+* Forget gate
+* Input gate
+* Output gate
+
+### Forget gate
+![forget gate](images/forget_gate.png)
+
+The Forget gate (f) forms the first part of the LSTM repeating unit, and its role is to decide how much data we should forget or remember from the previous cell state. It does so by first concatenating the Previous Hidden State (ht−1) and the current Input (xt), then passing the concatenated vector through a sigmoid function. The sigmoid function outputs a vector with values between 0 and 1. A value of 0 means to stop the information from passing through (forget), and a value of 1 means to pass the information through (remember).
+
+### Input gate
+The Input gate (i) controls how much information to pass to the current cell state.
+![input gate](images/input_gate.png)
+
+The Input gate (i) takes as input the concatenation of the Previous Hidden State (ht-1) and the current Input (xt). It then passes two copies of the concatenated vector through a sigmoid function and a tanh
+function, before multiplying them together
+
+The current cell state Ct is as follows:
+
+  C<sub>t</sub> = (forget_eq * C<sub>t</sub>) + input_eq
+  
+### Output gate
+The output gate controls how much information is to be retained in the hidden state.
+![output gate](images/output_gate.png)
+
+First, we concatenate the Previous Hidden State (h<sub>t</sub>−1) and the current Input (x<sub>t</sub>), and pass it through a sigmoid function. Then, we take the current cell state (C<sub>t</sub>) and pass it through a tanh function. Finally, we take the multiplication of the two, which is passed to the next repeating unit as the hidden state (h<sub>t</sub>). 
+
