@@ -150,5 +150,6 @@ noise_removing_problem/image_noise_removing/data/noisy/
 
 image_classification_problem/cat_vs_dogs_prediction/data/*
 face_recognition_problem/facial_recognition_system/models/siamese_nn.h5
+face_recognition_problem/facial_recognition_system/models/siamese_nn_128.h5
 
 # End of https://www.gitignore.io/api/python,jupyternotebooks
