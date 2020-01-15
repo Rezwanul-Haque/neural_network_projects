@@ -1,5 +1,3 @@
-name = input("What is your name?")
-
 import os
 import sys
 import cv2
@@ -8,26 +6,30 @@ from keras.models import load_model
 import face_detection
 import collections
 
+name = input("What is your name? ")
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 # validate that the user has ran the model training process
-models_dump_files = os.listdir(dir_path + 'models/')
+models_dump_files = os.listdir(dir_path + '/models/')
 if 'siamese_nn.h5' not in models_dump_files:
     print("Error: Pre-trained Neural Network not found!")
-    print("Please run siamese_nn.py first")
+    print("Please run siamese_neural_network.py first")
     sys.exit()    
 
-original_media_image_files = os.listdir(dir_path + 'data/db_images/')
+original_media_image_files = os.listdir(dir_path + '/data/db_images/')
 # validate that the user has ran the onboarding process
 if 'true_img.png' not in original_media_image_files:
     print("Error: True image not found!")
-    print("Please run onbarding.py first")
+    print("Please run capture_inital_image.py first")
     sys.exit()    
 
 # load pre-trained Siamese neural network
 model = load_model('models/siamese_nn.h5', custom_objects={'contrastive_loss': utils.contrastive_loss, 'euclidean_distance': utils.euclidean_distance})
 
 # prepare the true image obtained during onboard
-true_img = cv2.imread(original_media_image_files + 'true_img.png', 0)
+db_image_path = 'data/db_images/true_img.png'
+
+true_img = cv2.imread(db_image_path, 0)
 true_img = true_img.astype('float32') / 255
 true_img = cv2.resize(true_img, (92, 112))
 true_img = true_img.reshape(1, true_img.shape[0], true_img.shape[1], 1)

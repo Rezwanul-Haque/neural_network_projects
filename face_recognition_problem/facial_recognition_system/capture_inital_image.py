@@ -1,10 +1,16 @@
-import cv2
+import os
+import random
 import math
-import utils
+
+import cv2
 import face_detection
+
+import utils
 
 video_capture = cv2.VideoCapture(0)
 counter = 5
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 while True:
     _, frame = video_capture.read()
@@ -16,7 +22,7 @@ while True:
     cv2.waitKey(1)
     counter -= 0.1
     if counter <= 0:
-        cv2.imwrite('true_img.png', face_box)
+        cv2.imwrite(dir_path + f'/data/db_images/true_img.png', face_box)
         break
 
 # When everything is done, release the capture
