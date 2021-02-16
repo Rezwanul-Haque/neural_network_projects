@@ -1,7 +1,8 @@
-import utils
 import numpy as np
 from keras.layers import Input, Lambda
 from keras.models import Model
+
+import utils
 
 faces_dir = 'data/att_faces/'
 

@@ -153,3 +153,7 @@ face_recognition_problem/facial_recognition_system/models/siamese_nn.h5
 face_recognition_problem/facial_recognition_system/models/siamese_nn_128.h5
 
 # End of https://www.gitignore.io/api/python,jupyternotebooks
+
+## IDE manage folders
+.vscode
+.idea

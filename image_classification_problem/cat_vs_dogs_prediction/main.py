@@ -1,23 +1,11 @@
 import os
-import random
 import warnings
+
 warnings.filterwarnings('ignore')
 
-import pandas as pd
-from matplotlib import pyplot as plt
-
-
 import seaborn as sns
+
 sns.set()
-
-import numpy as np
-from sklearn import preprocessing
-from sklearn.preprocessing import scale
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, roc_curve, mean_squared_error
-
-from keras.models import Sequential
-from keras.layers import Dense
 
 from utils import train_test_split
 
@@ -48,6 +36,6 @@ from utils import train_test_split
 #     ax[int(idx / 3), idx % 3].set_title('Dog/' + img)
 # plt.show()
 
-BASE_DIR = os.getcwd() # Getting current working directories
+BASE_DIR = os.getcwd()  # Getting current working directories
 src_folder = f'{BASE_DIR}/data/PetImages/'
 train_test_split(src_folder)

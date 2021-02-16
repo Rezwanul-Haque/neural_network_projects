@@ -1,9 +1,11 @@
 import os
 import random
 import shutil
+
 import piexif
 
-def train_test_split(src_folder: str, train_size: float=0.8)-> None:
+
+def train_test_split(src_folder: str, train_size: float = 0.8) -> None:
     # Make sure we wemove any existing folders and start from a clean slate
     shutil.rmtree(src_folder + 'Train/Cat/', ignore_errors=True)
     shutil.rmtree(src_folder + 'Train/Dog/', ignore_errors=True)
@@ -22,7 +24,7 @@ def train_test_split(src_folder: str, train_size: float=0.8)-> None:
 
     for file in files_to_be_removed:
         cat_images.remove(file)
-    
+
     num_cat_images = len(cat_images)
     num_cat_images_train = int(train_size * num_cat_images)
     num_cat_images_test = num_cat_images - num_cat_images_train
@@ -32,7 +34,7 @@ def train_test_split(src_folder: str, train_size: float=0.8)-> None:
 
     for file in files_to_be_removed:
         dog_images.remove(file)
-    
+
     num_dog_images = len(dog_images)
     num_dog_images_train = int(train_size * num_dog_images)
     num_dog_images_test = num_dog_images - num_dog_images_train
@@ -41,7 +43,7 @@ def train_test_split(src_folder: str, train_size: float=0.8)-> None:
     cat_train_images = random.sample(cat_images, num_cat_images_train)
     for img in cat_train_images:
         shutil.copy(src=src_folder + 'Cat/' + img, dst=src_folder + 'Train/Cat/')
-    
+
     cat_test_images = [img for img in cat_images if img not in cat_train_images]
     for img in cat_test_images:
         shutil.copy(src=src_folder + 'Cat/' + img, dst=src_folder + 'Test/Cat/')
@@ -49,7 +51,7 @@ def train_test_split(src_folder: str, train_size: float=0.8)-> None:
     dog_train_images = random.sample(dog_images, num_dog_images_train)
     for img in dog_train_images:
         shutil.copy(src=src_folder + 'Dog/' + img, dst=src_folder + 'Train/Dog/')
-    
+
     dog_test_images = [img for img in dog_images if img not in dog_train_images]
     for img in dog_test_images:
         shutil.copy(src=src_folder + 'Dog/' + img, dst=src_folder + 'Test/Dog/')
@@ -57,7 +59,6 @@ def train_test_split(src_folder: str, train_size: float=0.8)-> None:
     # Remove corrupted exif data from the dataset
     remove_exif_data(src_folder + 'Train/')
     remove_exif_data(src_folder + 'Test/')
-
 
 
 # Helper function to remove corrupt exif data from dataset
